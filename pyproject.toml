@@ -1,24 +1,49 @@
 [build-system]
-requires = [ "poetry-core>=1.0.4",]
+requires = ["poetry-core>=1.0.4"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 88
-target-version = [ "py38", "py39", "py310",]
+target-version = ["py38", "py39", "py310"]
 exclude = "((.eggs | .git | .pytest_cache | build | dist))"
 
 [tool.poetry]
 name = "rasa"
-version = "3.6.20"
+version = "3.6.21"
 description = "Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants"
-authors = [ "Rasa Technologies GmbH <hi@rasa.com>",]
-maintainers = [ "Tom Bocklisch <tom@rasa.com>",]
+authors = ["Rasa Technologies GmbH <hi@rasa.com>"]
+maintainers = ["Tom Bocklisch <tom@rasa.com>"]
 homepage = "https://rasa.com"
 repository = "https://github.com/rasahq/rasa"
 documentation = "https://rasa.com/docs"
-classifiers = [ "Development Status :: 5 - Production/Stable", "Intended Audience :: Developers", "License :: OSI Approved :: Apache Software License", "Topic :: Software Development :: Libraries",]
-keywords = [ "nlp", "machine-learning", "machine-learning-library", "bot", "bots", "botkit", "rasa conversational-agents", "conversational-ai", "chatbot", "chatbot-framework", "bot-framework",]
-include = [ "LICENSE.txt", "README.md", "rasa/shared/core/training_data/visualization.html", "rasa/cli/default_config.yml", "rasa/shared/importers/*", "rasa/utils/schemas/*", "rasa/keys",]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Software Development :: Libraries",
+]
+keywords = [
+    "nlp",
+    "machine-learning",
+    "machine-learning-library",
+    "bot",
+    "bots",
+    "botkit",
+    "rasa conversational-agents",
+    "conversational-ai",
+    "chatbot",
+    "chatbot-framework",
+    "bot-framework",
+]
+include = [
+    "LICENSE.txt",
+    "README.md",
+    "rasa/shared/core/training_data/visualization.html",
+    "rasa/cli/default_config.yml",
+    "rasa/shared/importers/*",
+    "rasa/utils/schemas/*",
+    "rasa/keys",
+]
 readme = "README.md"
 license = "Apache-2.0"
 [[tool.poetry.source]]
@@ -77,15 +102,15 @@ disallow_incomplete_defs = true
 disallow_untyped_defs = true
 disallow_untyped_decorators = true
 no_implicit_optional = false
-disable_error_code = [ "arg-type",]
+disable_error_code = ["arg-type"]
 
 [tool.bandit]
-skips = [ "B104", "B301",]
+skips = ["B104", "B301"]
 
 [tool.ruff]
-ignore = [ "D100", "D104", "D105", "RUF001", "RUF002", "RUF003", "RUF005",]
+ignore = ["D100", "D104", "D105", "RUF001", "RUF002", "RUF003", "RUF005"]
 line-length = 88
-select = [ "D", "E", "F", "W", "RUF",]
+select = ["D", "E", "F", "W", "RUF"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
@@ -220,12 +245,12 @@ version = "<1.10.10"
 optional = true
 
 [tool.poetry.extras]
-spacy = [ "spacy",]
-jieba = [ "jieba",]
-transformers = [ "transformers", "sentencepiece",]
-full = [ "spacy", "transformers", "sentencepiece", "jieba",]
-gh-release-notes = [ "github3.py",]
-metal = [ "tensorflow-metal",]
+spacy = ["spacy"]
+jieba = ["jieba"]
+transformers = ["transformers", "sentencepiece"]
+full = ["spacy", "transformers", "sentencepiece", "jieba"]
+gh-release-notes = ["github3.py"]
+metal = ["tensorflow-metal"]
 
 [tool.poetry.scripts]
 rasa = "rasa.__main__:main"
@@ -234,15 +259,28 @@ rasa = "rasa.__main__:main"
 convention = "google"
 
 [tool.ruff.per-file-ignores]
-"tests/test_telemetry.py" = [ "E501",]
-"tests/shared/core/test_domain.py" = [ "E501",]
+"tests/test_telemetry.py" = ["E501"]
+"tests/shared/core/test_domain.py" = ["E501"]
 
 [tool.pytest.ini_options]
 python_functions = "test_"
-filterwarnings = [ "ignore::ResourceWarning:ruamel[.*]",]
+filterwarnings = ["ignore::ResourceWarning:ruamel[.*]"]
 log_cli_level = "WARNING"
 log_cli = true
-markers = [ "skip_on_windows", "skip_on_ci", "sequential", "category_cli", "category_core_featurizers", "category_policies", "category_nlu_featurizers", "category_nlu_predictors", "category_full_model_training", "category_other_unit_tests", "category_performance", "flaky",]
+markers = [
+    "skip_on_windows",
+    "skip_on_ci",
+    "sequential",
+    "category_cli",
+    "category_core_featurizers",
+    "category_policies",
+    "category_nlu_featurizers",
+    "category_nlu_predictors",
+    "category_full_model_training",
+    "category_other_unit_tests",
+    "category_performance",
+    "flaky",
+]
 timeout = 60
 timeout_func_only = true
 asyncio_mode = "auto"
@@ -265,7 +303,7 @@ markers = "sys_platform == 'darwin' and platform_machine == 'arm64'"
 
 [tool.poetry.dependencies.PyJWT]
 version = "^2.0.0"
-extras = [ "crypto",]
+extras = ["crypto"]
 
 [tool.poetry.dependencies.colorama]
 version = "^0.4.4"
@@ -291,7 +329,7 @@ optional = true
 [tool.poetry.dependencies.sentencepiece]
 version = "~0.1.99"
 optional = true
-extras = [ "sentencepiece",]
+extras = ["sentencepiece"]
 
 [tool.poetry.dependencies.jieba]
 version = ">=0.39, <0.43"
@@ -299,7 +337,7 @@ optional = true
 
 [tool.poetry.dependencies.pymongo]
 version = ">=3.8,<4.4"
-extras = [ "tls", "srv",]
+extras = ["tls", "srv"]
 
 [tool.poetry.dev-dependencies.pytest-sanic]
 git = "https://github.com/RasaHQ/pytest-sanic"
